@@ -16,5 +16,5 @@ export interface PromptUpdateProps {
     prompt: string,
     tag: string,
     userId: string,
-    createdAt: string,
+
 }

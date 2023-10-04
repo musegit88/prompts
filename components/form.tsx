@@ -19,7 +19,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useUser } from "@clerk/nextjs";
-import { PromptProps, PromptUpdateProps } from "@/types";
+import { PromptUpdateProps } from "@/types";
 
 interface FormPageProps {
   creatorId?: string | undefined;
