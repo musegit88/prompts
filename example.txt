@@ -1,0 +1,20 @@
+question:generate two  prompts for AI image generation. First for Dall-E and second for Midjourney
+response:
+Prompt 1:
+1. For DALL-E: "Generate an image of a futuristic cityscape at sunset. The city should have tall skyscrapers with neon lights, flying cars, and a large body of water reflecting the city lights."
+
+2. For Midjourney: "Create an image of a serene forest path in autumn. The path should be covered with fallen leaves, surrounded by tall trees with vibrant autumn colors, and a small wooden bridge crossing a babbling brook.
+
+
+Prompt 2:
+1. For DALL-E:
+"Generate an image using DALL-E AI model. The image should depict a surreal landscape with floating islands, a waterfall cascading from one island to another, and a double sunset in the background. The style should be reminiscent of a Salvador Dali painting."
+
+2. For Midjourney:
+"Using the Midjourney AI model, generate an image that represents the transition from winter to spring. The left side of the image should show a snowy landscape with bare trees, while the right side should depict the same landscape blossoming with flowers and greenery. A path should seamlessly connect these two halves, symbolizing the journey from one season to another.
+
+
+Prompt 3:
+1. For DALL-E: "Generate an image of a futuristic cityscape at sunset. The city should have tall skyscrapers with neon lights, flying cars, and a large body of water reflecting the city lights."
+
+2. For Midjourney: "Create an image of a serene forest path in autumn. The path should be covered with fallen leaves, surrounded by tall trees with vibrant fall colors, and a small wooden bridge crossing a stream.

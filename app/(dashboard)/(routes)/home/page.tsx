@@ -27,7 +27,7 @@ const HomePage = async () => {
   }));
 
   return (
-    <div className="px-4 sm:px-12 py-4">
+    <div className="px-4 sm:px-8 py-4">
       <Feed data={formatedPrompts} />
     </div>
   );

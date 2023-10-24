@@ -1,14 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Poppins, Ubuntu } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import ToastProvider from "@/components/providers/toast-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
-const poppins = Poppins({
+const ubuntu = Ubuntu({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "600", "900"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider>
-        <body className={poppins.className}>
+        <body className={ubuntu.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

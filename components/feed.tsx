@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { ChangeEventHandler, useState } from "react";
 
 interface FeedProps {
-  data: PromptProps[];
+  data?: PromptProps[];
   results?: PromptProps[];
   handleTagClick?: (a: string) => void;
 }
@@ -15,35 +15,45 @@ const PromptsCardList: React.FC<FeedProps> = ({
   results,
   handleTagClick,
 }) => {
+  let body = (
+    <div className="space-y-6">
+      {results &&
+        results?.map((post) => (
+          <PromptCard
+            key={post.id}
+            posts={post}
+            handleTagClick={handleTagClick}
+          />
+        ))}
+    </div>
+  );
+  if (!results) {
+    body = (
+      <div className="space-y-6">
+        {data?.map((post) => (
+          <PromptCard
+            key={post.id}
+            posts={post}
+            handleTagClick={handleTagClick}
+          />
+        ))}
+      </div>
+    );
+  }
   return (
-    <div className="space-y-6 py-8 sm:columns-2 sm:gap-4 md:columns-2 lg:columns-4 xl:columns-4">
-      {!results && data
-        ? data.map((post) => (
-            <PromptCard
-              key={post.id}
-              posts={post}
-              handleTagClick={handleTagClick}
-            />
-          ))
-        : results?.map((post) => (
-            <PromptCard
-              key={post.id}
-              posts={post}
-              handleTagClick={handleTagClick}
-            />
-          ))}
-      {/* {results ?
-        results.map((post) => <PromptCard key={post.id} posts={post} />) : } */}
+    <div className="py-8 sm:columns-2 sm:gap-4  lg:columns-3 lg:px-4 xl:columns-4">
+      {body}
     </div>
   );
 };
-
 const Feed: React.FC<FeedProps> = ({ data, results }) => {
   const [searchText, setSearchText] = useState("");
-  const [searchedResults, setSearchedResults] = useState<PromptProps[]>([]);
+  const [searchedResults, setSearchedResults] = useState<
+    PromptProps[] | undefined
+  >([]);
   const filterPrompts = (searchText: string) => {
     const regex = new RegExp(searchText, "i");
-    return data.filter(
+    return data?.filter(
       (item) =>
         regex.test(item.username) ||
         regex.test(item.prompt) ||
@@ -76,19 +86,24 @@ const Feed: React.FC<FeedProps> = ({ data, results }) => {
           />
         </div>
       </div>
-      <div className="hidden grid grid-cols-2 gap-y-2 sm:flex space-x-2">
-        {data.map((item) => (
+      {/* Desktop */}
+      <div className="hidden grid grid-cols-2 gap-y-2 sm:flex flex-wrap space-x-2">
+        {data?.map((item) => (
           <Button
             size="sm"
             key={item.id}
             onClick={() => handleTagClick(item.tag)}
+            className="flex gap-x-2"
           >
-            # {item.tag}
+            <span> #</span> <span>{item.tag}</span>
           </Button>
         ))}
       </div>
-      <div className="sm:hidden flex flex-wrap items-center gap-2 ">
-        {data.map((item) => (
+      {/* Desktop End*/}
+
+      {/* Mobile */}
+      <div className="sm:hidden flex flex-wrap items-center gap-2">
+        {data?.map((item) => (
           <span
             key={item.id}
             onClick={() => handleTagClick(item.tag)}
@@ -98,13 +113,19 @@ const Feed: React.FC<FeedProps> = ({ data, results }) => {
           </span>
         ))}
       </div>
-
+      {/* Mobile end */}
       <div className="">
-        <PromptsCardList
-          data={data}
-          results={searchedResults}
-          handleTagClick={handleTagClick}
-        />
+        {searchText ? (
+          <PromptsCardList
+            results={searchedResults}
+            handleTagClick={handleTagClick}
+          />
+        ) : (
+          <PromptsCardList
+            data={data}
+            handleTagClick={handleTagClick}
+          />
+        )}
       </div>
     </div>
   );

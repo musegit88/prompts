@@ -1,21 +1,14 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import { currentUser, useAuth, useUser } from "@clerk/nextjs";
-import { Share2 } from "lucide-react";
-import Image from "next/image";
+import { useAuth, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { MouseEventHandler } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/components/header";
+import SectionItem from "@/components/sections";
+import ChevronDown from "@/components/chevron-down";
+import MobileLandingContent from "@/components/mobilelanding-content";
 
 export default function HomePage() {
   const { isSignedIn } = useAuth();
@@ -48,22 +41,17 @@ export default function HomePage() {
     <div className="">
       {/* Mobile */}
       <section className="sm:hidden flex flex-col justify-center items-center w-full">
-        <h1 className="font-[inter] text-4xl font-medium leading-[1.15] text-black dark:text-white mt-4  text-center">
-          Discover & Share <br />
-          <span className="text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            AI-Powered Prompts
-          </span>
-        </h1>
-        <p className="mt-4 mb-8 text-center text-base text-muted-foreground  max-w-2xl">
-          Prompts is open-source AI-Powered prompting tool for modern world
-          discover, create and share creative prompts
-        </p>
-        <Button className="rounded-full w-[200px]" onClick={handleClick}>
-          {/* <Link href={isSignedIn ? "/home" : "/sign-up"}>
-            {isSignedIn ? "Discover prompts" : "Get started"}
-          </Link> */}
+        <Header
+          title="Discover & Share"
+          titleBottom="AI-Powered Prompts"
+          description=" Prompts is open-source AI-Powered prompting tool for modern world
+        discover, create and share creative prompts"
+          gradient="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+        />
+        <Button className="rounded-full mt-8 w-[200px]" onClick={handleClick}>
           {isSignedIn ? "Discover prompts" : "Get started"}
         </Button>
+     <MobileLandingContent/>
       </section>
       {/*  */}
       {/* Desktop */}
@@ -85,7 +73,7 @@ export default function HomePage() {
             </Link>{" "}
             <Link
               href={"#create"}
-              className="cursor-pointer bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent "
+              className="cursor-pointer bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent"
             >
               create
             </Link>{" "}
@@ -103,136 +91,49 @@ export default function HomePage() {
               className="mt-8 rounded-full w-[200px]"
               onClick={handleClick}
             >
-              {/* <Link href={isSignedIn ? "/home" : "/sign-up"}>
-                {isSignedIn ? "Discover prompts" : "Get started"}
-              </Link> */}
               {isSignedIn ? "Discover prompts" : "Get started"}
             </Button>
           </div>
-          <div className="absolute bottom-[90px] translate-x-[-50%] animate-bounce">
-            <svg width="30px" height="20px">
-              <path
-                stroke="#ffffff"
-                fill="none"
-                stroke-width="2px"
-                d="M2.000,5.000 L15.000,18.000 L28.000,5.000 "
-              ></path>
-            </svg>
-          </div>
+          <ChevronDown />
         </section>
-
-        <section className="relative flex flex-col justify-center items-center h-[90vh]" id="discover">
-          <div className="max-[640px]:hidden flex items-center gap-x-4 max-w-4xl">
-            <Card className="w-full  bg-blue-100 ">
-              <CardHeader></CardHeader>
-              <CardContent className="flex justify-center items-center">
-                <Image
-                  src="/compass.png"
-                  alt="discover"
-                  width={200}
-                  height={200}
-                  className="object-cover object-center"
-                />
-              </CardContent>
-              <CardFooter></CardFooter>
-            </Card>
-            <div className="flex flex-col space-y-4">
-              <h1 className="font-[inter] text-5xl font-bold bg-gradient-to-r from-sky-400 to-fuchsia-500 bg-clip-text text-transparent">
-                Discover
-              </h1>
-              <p className="text-muted-foreground">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-                ex voluptate neque ab hic nostrum, suscipit rem praesentium
-                incidunt aut adipisci doloremque earum quas iure ut illum
-                architecto dignissimos error.
-              </p>
-            </div>
-          </div>
-
-          <div className="absolute bottom-[10px] translate-x-[-50%] animate-bounce">
-            <svg width="30px" height="20px">
-              <path
-                stroke="#ffffff"
-                fill="none"
-                stroke-width="2px"
-                d="M2.000,5.000 L15.000,18.000 L28.000,5.000 "
-              ></path>
-            </svg>
-          </div>
-        </section>
-
 
         <section
-          className="relative flex flex-col justify-center items-center h-[90vh]"
+          className="max-[640px]:hidden relative flex flex-col justify-center items-center h-[90vh]"
+          id="discover"
+        >
+          <SectionItem
+            title="Discover"
+            description="Discover a world of inspiration and creativity! Our website is designed to help you find the perfect prompt to get your creative juices flowing. With a wide variety of prompts to choose from, including writing prompts, art prompts, and more, you're sure to find something that sparks your imagination."
+            gradient="bg-gradient-to-r from-sky-400 to-fuchsia-500 bg-clip-text text-transparent"
+            image="/compass.png"
+          />
+
+          <ChevronDown />
+        </section>
+
+        <section
+          className="max-[640px]:hidden relative flex flex-col justify-center items-center h-[90vh]"
           id="create"
         >
-          <div className="max-[640px]:hidden flex items-center gap-x-4 max-w-4xl">
-          <Card className="w-full  bg-blue-100 ">
-            <CardHeader></CardHeader>
-            <CardContent className="flex justify-center items-center">
-              <Image
-                src="/create.png"
-                alt="create"
-                width={200}
-                height={200}
-                className="object-cover object-center"
-              />
-            </CardContent>
-            <CardFooter></CardFooter>
-          </Card>
-
-          <div className="flex flex-col space-y-4">
-            <h1 className="font-[inter] text-5xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent">
-              Create
-            </h1>
-            <p className="text-muted-foreground">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-              ex voluptate neque ab hic nostrum, suscipit rem praesentium
-              incidunt aut adipisci doloremque earum quas iure ut illum
-              architecto dignissimos error.
-            </p>
-          </div>
-          </div>
-    
-          <div className="absolute bottom-[60px] translate-x-[-50%] animate-bounce">
-            <svg width="30px" height="20px">
-              <path
-                stroke="#ffffff"
-                fill="none"
-                stroke-width="2px"
-                d="M2.000,5.000 L15.000,18.000 L28.000,5.000 "
-              ></path>
-            </svg>
-          </div>
+          <SectionItem
+            title="Create"
+            description="From brainstorming and outlining to drafting and revising, our tools are here to help you stay organized and focused on your creative vision. So why wait? Start creating today and see where your imagination takes you!"
+            gradient="bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent"
+            image="/create.png"
+          />
+          <ChevronDown />
         </section>
+
         <section
-          className="relative max-[640px]:hidden flex items-center gap-x-4 max-w-4xl h-[90vh] "
+          className="max-[640px]:hidden relative max-[640px]:hidden flex items-center gap-x-4 max-w-4xl h-[90vh] "
           id="share"
         >
-          <Card className="w-full  bg-blue-100 ">
-            <CardHeader></CardHeader>
-            <CardContent className="flex justify-center items-center">
-              <Image
-                src="/compass.png"
-                alt="share"
-                width={200}
-                height={200}
-                className="object-cover object-center"
-              />
-            </CardContent>
-            <CardFooter></CardFooter>
-          </Card>
-          <div className="flex flex-col space-y-4">
-            <h1 className="font-[inter] text-5xl font-bold bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text text-transparent">
-              Share
-            </h1>
-            <p className="text-muted-foreground">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-              ex voluptate neque ab hic nostrum, suscipit rem praesentium
-              incidunt aut adipisci doloremque earum quas iure ut illum
-              architecto dignissimos error.
-            </p>
-          </div>
+          <SectionItem
+            title="Share"
+            description="Finally, once you've finished your project, it's time to share it with the world! Our website makes it easy to share your work with others and connect with a community of like-minded creatives."
+            gradient="bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text text-transparent"
+            image="/compass.png"
+          />
         </section>
       </div>
     </div>

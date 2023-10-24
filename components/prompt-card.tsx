@@ -96,10 +96,11 @@ const PromptCard: React.FC<PromptCardProps> = ({ posts, handleTagClick }) => {
           <div className="flex flex-col space-y-2">
             <p className="text-sm h-[80px] overflow-y-scroll">{posts.prompt}</p>
             <p
-              className="cursor-pointer text-xs text-gray-400"
+              className="cursor-pointer flex items-center text-xs text-gray-400"
               onClick={() => handleTagClick && handleTagClick(posts.tag)}
             >
-              #{posts.tag}
+              <span>#</span>
+              <span>{posts.tag}</span>
             </p>
           </div>
           {user?.id === posts.userId && pathname === "/profile" && (

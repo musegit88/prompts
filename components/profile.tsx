@@ -19,7 +19,7 @@ const Profile: React.FC<ProfileProps> = ({ name, data }) => {
         </span>{" "}
         profile
       </p>
-      <div className="mt-10 space-y-6 py-8 sm:columns-2 sm:gap-4 md:columns-2 lg:columns-4 xl:columns-4">
+      <div className="mt-10 sm:gap-4 space-y-6 py-8 md:columns-3  lg:columns-4">
         {data?.map((post) => (
           <PromptCard key={post.id} posts={post} />
         ))}
