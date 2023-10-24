@@ -1,13 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Poppins, Ubuntu } from "next/font/google";
+import { Ubuntu, Montserrat } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import ToastProvider from "@/components/providers/toast-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
-const ubuntu = Ubuntu({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider>
-        <body className={ubuntu.className}>
+        <body className={montserrat.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
