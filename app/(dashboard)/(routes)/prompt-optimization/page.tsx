@@ -123,7 +123,7 @@ const OptPage = () => {
             </div>
             <div className="flex flex-col space-y-2">
               {results.map((result) => (
-                <Card>
+                <Card key={result.text}>
                   <CardContent className="flex flex-col space-y-2  py-2">
                     <div
                       onClick={() => handleCopy(result.text)}
@@ -197,7 +197,7 @@ const OptPage = () => {
             </div>
             <div className="flex flex-col space-y-2">
               {results.map((result) => (
-                <Card>
+                <Card key={result.text}>
                   <CardContent className="flex flex-col space-y-2  py-2">
                     <div
                       onClick={() => handleCopy(result.text)}
