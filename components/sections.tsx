@@ -23,19 +23,17 @@ const SectionItem: React.FC<SectionItemProps> = ({
 }) => {
   return (
     <div className="max-[640px]:hidden flex items-center gap-x-4 max-w-4xl">
-      <Card className="w-full  bg-blue-100 ">
-        <CardHeader></CardHeader>
-        <CardContent className="flex justify-center items-center">
+      <div className="w-full bg-blue-100 rounded-md py-4">
+        <div className="flex justify-center items-center">
           <Image
             src={image}
             alt="create"
             width={200}
             height={200}
-            className="object-cover object-center"
+            className="object-contain"
           />
-        </CardContent>
-        <CardFooter></CardFooter>
-      </Card>
+        </div>
+      </div>
       <div className="flex flex-col space-y-4">
         <h1 className={cn("font-[inter] text-5xl font-bold", gradient)}>
           {title}

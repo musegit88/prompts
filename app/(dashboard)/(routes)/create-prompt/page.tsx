@@ -12,7 +12,6 @@ const CreatePage = async () => {
   });
   const creatorId = prisma?.id;
   if (!user) return <div>please try again</div>;
-  // {user ?  <FormPage creatorId={creatorId} /> : }
 
   return (
     <div>

@@ -2,7 +2,6 @@ import Feed from "@/components/feed";
 import prismaDB from "@/lib/prismaDB";
 import React from "react";
 import moment from "moment";
-import axios from "axios";
 
 const HomePage = async () => {
   const prompts = await prismaDB.prompt.findMany({

@@ -2,7 +2,7 @@ import React from "react";
 
 const ChevronDown = () => {
   return (
-    <div className="max-[640px]:hidden absolute bottom-[10px] translate-x-[-50%] animate-bounce">
+    <div className="max-[640px]:hidden absolute bottom-[54px] translate-x-[-50%] animate-bounce">
       <svg width="30px" height="20px">
         <path
           stroke="#ffffff"

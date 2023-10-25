@@ -51,7 +51,7 @@ export default function HomePage() {
         <Button className="rounded-full mt-8 w-[200px]" onClick={handleClick}>
           {isSignedIn ? "Discover prompts" : "Get started"}
         </Button>
-     <MobileLandingContent/>
+        <MobileLandingContent />
       </section>
       {/*  */}
       {/* Desktop */}
@@ -119,20 +119,20 @@ export default function HomePage() {
             title="Create"
             description="From brainstorming and outlining to drafting and revising, our tools are here to help you stay organized and focused on your creative vision. So why wait? Start creating today and see where your imagination takes you!"
             gradient="bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent"
-            image="/create.png"
+            image="/pen.png"
           />
           <ChevronDown />
         </section>
 
         <section
-          className="max-[640px]:hidden relative max-[640px]:hidden flex items-center gap-x-4 max-w-4xl h-[90vh] "
+          className="max-[640px]:hidden relative flex flex-col justify-center items-center h-[90vh] "
           id="share"
         >
           <SectionItem
             title="Share"
             description="Finally, once you've finished your project, it's time to share it with the world! Our website makes it easy to share your work with others and connect with a community of like-minded creatives."
             gradient="bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text text-transparent"
-            image="/compass.png"
+            image="/share.png"
           />
         </section>
       </div>
